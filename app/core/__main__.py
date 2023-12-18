@@ -1,10 +1,11 @@
-import os
-from views import file_reader
+from views import file_reader_txt
 
-basedir = os.path.abspath(os.path.dirname(__file__))
 
 def main():
-    file_reader()
+    file = file_reader_txt('/home/joaomarcos/projects/historical_quotes/COTAHIST_A2010.TXT')
+    df = file[0]
+    
+    print(df)
 
 if __name__ == '__main__':
     main()
