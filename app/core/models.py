@@ -1,15 +1,12 @@
 
-
-class ReadFiles:
-    def __init__(self, file) -> None:
-        self.file = file
         
 class MetaData:
     def __init__(self, data) -> None:
         self.metadata = data.get('metadata', {})
         self.markets = data.get('markets', {})
         self.indopc = data.get('indopc', {})
-        self.codbdi = data.get('codbdi', {})
+        self.bdi_id = data.get('bdi_id', {})
+        self.corrections = data.get('corrections', {})
 
     def add_metadata(self, key, value):
         self.metadata[key] = value
@@ -20,6 +17,14 @@ class MetaData:
     def add_indopc(self, key, value):
         self.indopc[key] = value
 
-    def add_codbdi(self, key, value):
+    def add_bdi_id(self, key, value):
         self.codbdi[key] = value
-        
+    
+    def add_corrections(self, key, value):
+        self.corrections[key] = value
+
+# class DataframeHandling:
+#     def __init__(self, dataframe) -> None:
+#         self.dataframe = dataframe
+    
+    # def 
