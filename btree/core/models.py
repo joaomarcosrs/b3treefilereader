@@ -22,9 +22,3 @@ class MetaData:
     
     def add_corrections(self, key, value):
         self.corrections[key] = value
-
-# class DataframeHandling:
-#     def __init__(self, dataframe) -> None:
-#         self.dataframe = dataframe
-    
-    # def 

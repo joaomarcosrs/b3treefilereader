@@ -1,9 +1,8 @@
-import os
 import glob
 import tomllib
 import pandas as pd
 from pathlib import Path
-from .models import MetaData
+from models import MetaData
 
 
 def file_reader_txt(path):
