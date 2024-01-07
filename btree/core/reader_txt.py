@@ -1,8 +1,9 @@
+import os
 import glob
 import tomllib
 import pandas as pd
 from pathlib import Path
-from models import MetaData
+from .models import MetaData
 
 
 def file_reader_txt(path):
@@ -55,7 +56,8 @@ def file_reader_txt(path):
         raise Exception('No files to read.')
     
     try:
-        data = tomllib.loads(Path('metadata.toml').read_text(encoding='utf 8'))
+        
+        data = tomllib.loads(Path(os.path.dirname(os.path.abspath(__file__))+'/metadata.toml').read_text(encoding='utf 8'))
         metadata = MetaData(data)
         
     except Exception as error:
@@ -64,5 +66,6 @@ def file_reader_txt(path):
     dfs = list(map(lambda file: read_txt(file, metadata.metadata), files))
 
     dfs_processed = list(map(lambda df: process_df(df, metadata), dfs))
+
+    return pd.concat(dfs_processed, axis=0)
     
-    return dfs_processed  
