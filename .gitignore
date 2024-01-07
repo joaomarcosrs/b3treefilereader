@@ -177,3 +177,7 @@ pyrightconfig.json
 
 #Historical Quotes
 historical_quotes
+
+btree.py
+tree.py
+use_test.py
