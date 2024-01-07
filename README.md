@@ -38,7 +38,7 @@ To reader the txt file just need to call the `file_reader_txt()` funcion and set
     df = file_reader_txt('/home/usr/quotes/*')
     ```
   
-  The `df` object is a concatenated dataframe if more than one file to read.
+  The `df` object is a concatenated dataframe if there is more than one file to read.
 
 #### 2. Filtering dataframe
 ---
