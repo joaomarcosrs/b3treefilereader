@@ -1,4 +1,4 @@
-from btree.core.reader_txt import file_reader_txt
+from btreefilereader.core.reader_txt import file_reader_txt
 
 
 def test_file_reader_txt(sample_data):
