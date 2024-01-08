@@ -25,7 +25,7 @@ To reader the txt file just need to call the `file_reader_txt()` funcion and set
   * **If just one file:**
 
     ```python
-    from btree.core.reader_txt import file_reader_txt
+    from btreefilereader.core.reader_txt import file_reader_txt
     
     df = file_reader_txt('/home/usr/quotes/COTAHIST_A2019.TXT')
     ```
@@ -33,7 +33,7 @@ To reader the txt file just need to call the `file_reader_txt()` funcion and set
   * **If more than one:**
   
     ```python
-    from btree.core.reader_txt import file_reader_txt
+    from btreefilereader.core.reader_txt import file_reader_txt
     
     df = file_reader_txt('/home/usr/quotes/*')
     ```
@@ -47,7 +47,7 @@ To filter the dataframe by stock_id just need to set the dataframe and the stock
 
   *
     ```python
-    from btree.ByBTree.filter_by import FilterDataframes
+    from btreefilereader.ByBTree.filter_by import FilterDataframes
     
     filter_df = FilterDataframes()
     stocks = filter_df.by_stock_id(dataframe=df, stock_ids=['ABEV3', 'MODL11'])
