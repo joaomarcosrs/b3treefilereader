@@ -27,7 +27,7 @@ To reader the txt file just need to call the `file_reader_txt()` funcion and set
     ```python
     from btreefilereader.core.reader_txt import file_reader_txt
     
-    df = file_reader_txt('/home/usr/quotes/COTAHIST_A2019.TXT')
+    df = file_reader_txt('/path/to/file/file.txt')
     ```
   
   * **If more than one:**
@@ -35,7 +35,7 @@ To reader the txt file just need to call the `file_reader_txt()` funcion and set
     ```python
     from btreefilereader.core.reader_txt import file_reader_txt
     
-    df = file_reader_txt('/home/usr/quotes/*')
+    df = file_reader_txt('/path/to/file/*')
     ```
   
   The `df` object is a concatenated dataframe if there is more than one file to read.
