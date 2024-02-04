@@ -31,7 +31,7 @@ To reader the txt file just need to call the `file_reader_txt()` funcion, set th
     ```python
     from btreefilereader.core.reader_txt import FileReader
     
-    df = FileReader.file_reader_txt(path='/path/to/file/file.txt', stocks=['STOCK_ID', 'STOCK_ID'])
+    df = FileReader.file_reader_txt(path='/path/to/file/file.txt', stocks=['STOCK_ID3', 'STOCK_ID11'])
     ```
   
   * **If more than one:**
@@ -39,7 +39,7 @@ To reader the txt file just need to call the `file_reader_txt()` funcion, set th
     ```python
     from btreefilereader.core.reader_txt import FileReader
     
-    df = FileReader.file_reader_txt('/path/to/file/*')
+    df = FileReader.file_reader_txt(path='/path/to/file/*', stocks=['STOCK_ID3', 'STOCK_ID11'])
     ```
   
   The `df` object is a concatenated dataframe if there is more than one file to read.
