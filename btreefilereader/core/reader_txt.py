@@ -24,17 +24,21 @@ class Filter:
         return filtered_df
 
 class FileReader:
-    def file_reader_txt(path, stocks):
-        def read_txt(file, metadata):
+    def file_reader_txt(path, stocks = None):
+        def read_txt(file, stocks, metadata):
             try:
                 df = pd.read_fwf(file, names=list(metadata.keys()), widths=list(metadata.values()), header=None, encoding='latin-1')[1:-1]
                 
+                if stocks:
+                    filtered_df = Filter('stock_id', stocks, df)
+                    df = filtered_df.filter()
+            
             except Exception as error:
                 raise Exception(f'Error reading file: {file}. \n Error: {error}')
             
             return df
         
-        def process_df(df, stocks, metadata):
+        def process_df(df, metadata):
             def process_columns(column, df, metadata):
                 date_format = '%Y%m%d'
                 
@@ -66,10 +70,7 @@ class FileReader:
             
             list(map(lambda column: process_columns(column, df, metadata), df.columns.values))
             
-            filtered_df = Filter('stock_id', stocks, df)
-            filtered_df = filtered_df.filter()
-            
-            return filtered_df
+            return df
         
         files = glob.glob(path)
         
@@ -83,9 +84,9 @@ class FileReader:
         except Exception as error:
             raise Exception(f'Error reading metadata. \n Error: {error}')
         
-        dfs = list(map(lambda file: read_txt(file, metadata.metadata), files))
+        dfs = list(map(lambda file: read_txt(file, stocks, metadata.metadata), files))
 
-        dfs_processed = list(map(lambda df: process_df(df, stocks, metadata), dfs))
+        dfs_processed = list(map(lambda df: process_df(df, metadata), dfs))
 
         return pd.concat(dfs_processed, axis=0)
     
