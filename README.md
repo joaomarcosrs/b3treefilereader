@@ -20,7 +20,7 @@ pip install btreefilereader
 #### 1. Reading txt file
 ---
 
-To reader the txt file just need to call the `file_reader_txt()` funcion, set the path appropriately and filters, where:
+To read the txt file just need to call the `file_reader_txt()` funcion, set the path appropriately and filters, where:
 
   > path: is the path where your txt files are
 
